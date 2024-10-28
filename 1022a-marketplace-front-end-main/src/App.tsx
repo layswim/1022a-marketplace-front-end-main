@@ -18,7 +18,7 @@ type UserType = {
 };
 
 function App() {
-  const [setNome] = useState("");
+  const [nome, setNome] = useState("");
   const [produtos, setProdutos] = useState<ProdutoType[]>([]);
   const [usuarios, setUsuarios] = useState<UserType[]>([]);
 
@@ -36,15 +36,16 @@ function App() {
       .then(dados => setUsuarios(dados));
   }, []);
 
-  return (
+  return(
     <>
       <h1 className="app-title">Cadastro de produtos e usuários</h1>
       <div className="main-container">
         <div className="produtos-container">
+        
           <h2 className="section-header">Produtos</h2> 
           {produtos.map(produto => (
             <div key={produto.id} className="produto-item">
-              <h1>{produto.nome}</h1>
+              <h1 className="app-title">Cadastro de produtos e usuários - {nome}</h1>
               <div className='container-imagem'>
                 <img src={produto.imagem} alt="Imagem do produto" />
               </div>
